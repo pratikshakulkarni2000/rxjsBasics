@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TodosService } from '../../service/todos.service';
 import { Itodo } from '../../models/todos';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-todos-ncomplt',
@@ -9,22 +10,36 @@ import { Itodo } from '../../models/todos';
 })
 export class TodosNCompltComponent implements OnInit {
 
-  todosArr : Itodo[] = []
+  // todosArr : Itodo[] = []
+
+  todoObs$ !: Observable<Itodo[]>
 
   constructor(
     private _todoService : TodosService
   ) { }
 
   ngOnInit(): void {
-    this._todoService.getTodos()
-      .subscribe({
-        next : data => {
-          this.todosArr = data.filter(t => !t.completed)
-        },
-        error : err => {
-          console.log(err)
-        }
-      })
+
+    this.todoObs$ = this._todoService.getNotCompltTodo()
+
+
+    // this._todoService.getTodos()
+    //   .subscribe({
+    //     next : data => {
+    //       this.todosArr = data.filter(t => !t.completed)
+    //     },
+    //     error : err => {
+    //       console.log(err)
+    //     }
+    //   })
+
+
+
+
+
+
+
+    
   }
 
   trackById (index:number, todo : Itodo){

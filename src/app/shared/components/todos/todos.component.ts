@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Itodo } from '../../models/todos';
 import { TodosService } from '../../service/todos.service';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -14,18 +15,31 @@ export class TodosComponent implements OnInit {
   todosArr : Itodo[] = []
 
 
+  todosArrObs$ !: Observable<Itodo[]>
+
   constructor(
     private _todosService : TodosService
   ) {}
 
   ngOnInit(): void {
-    this._todosService.getTodos()
-      .subscribe({
-        next : data => {
-          // console.log(data)
-          this.todosArr = data
-        }
-      })
+
+    this.todosArrObs$ = this._todosService.getTodos()
+
+
+    // this._todosService.getTodos()
+    //   .subscribe({
+    //     next : data => {
+    //       // console.log(data)
+    //       this.todosArr = data
+    //     }
+    //   })
+
+
+
+
+
+
+
   }
 
   trackById (index : number, todo : Itodo){

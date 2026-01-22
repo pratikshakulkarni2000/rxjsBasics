@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Itodo } from '../models/todos';
 
@@ -20,5 +20,41 @@ export class TodosService {
   getTodos() : Observable<Itodo[]>{
     return this._httpClient.get<Itodo[]>(this.TODOS_URL)
   }
+
+  getCompltedTodo() : Observable<Itodo[]>{
+    return this.getTodos().pipe(
+      map(arr => {
+        let cmpltedArr = arr.filter(t => {
+          return t.completed
+        })
+        return cmpltedArr
+      })
+    )
+  }
+
+
+  getCompleteTodos() : Observable<Itodo[]>{
+    return this.getTodos().pipe(
+      map(arr => {
+        let cmplt = arr.filter(a => {
+          return  a.completed
+        })
+        return cmplt
+      })
+    )
+  }
+
+
+  getNotCompltTodo () : Observable<Itodo[]>{
+    return this.getTodos().pipe(
+      map(arr => {
+        let notCmplt = arr.filter(n => {
+          return !n.completed
+        })
+        return notCmplt
+      })
+    )
+  }
+  
 
 }
