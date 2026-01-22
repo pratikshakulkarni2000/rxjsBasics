@@ -1,0 +1,11 @@
+
+
+<ul class="list-group">
+    <li *ngFor="let todo of todosArray; trackBy : trackById"
+     class="list-group-item">
+        {{todo.title}}
+        <strong>
+            {{todo.completed}}
+        </strong>
+    </li>
+</ul>
