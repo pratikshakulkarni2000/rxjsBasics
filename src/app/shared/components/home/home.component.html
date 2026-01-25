@@ -1,1 +1,24 @@
-<p>home works!</p>
+<ul class="list-group">
+    <li *ngFor="let skill of skillsArr"
+     class="list-group-item">
+        {{skill}}
+    </li>
+</ul>
+<hr>
+<ul class="list-group">
+    <li *ngFor="let car of carsArr"
+    class="list-group-item">
+        <strong>
+            {{car}}
+        </strong>
+    </li>
+</ul>
+<hr>
+<ul class="list-group">
+    <li *ngFor="let b of brandsArr"
+     class="list-group-item">
+        <strong>
+            {{b}}
+        </strong>
+    </li>
+</ul>
