@@ -13,9 +13,19 @@ import { TodosNCompltComponent } from './shared/components/todos-ncomplt/todos-n
 import { OneComponent } from './shared/components/one/one.component';
 import { TwoComponent } from './shared/components/two/two.component';
 import { ThreeComponent } from './shared/components/three/three.component';
-import { FormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { MainComponent } from './shared/components/main/main.component';
+import { TodoDashboardComponent } from './shared/components2.crud/todo-dashboard/todo-dashboard.component';
+import { TodoFormComponent } from './shared/components2.crud/todo-dashboard/todo-form/todo-form.component';
+import { TodoListComponent } from './shared/components2.crud/todo-dashboard/todo-list/todo-list.component';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { GetConfirmComponent } from './shared/components2.crud/get-confirm/get-confirm.component';
+import { StudentDashboardComponent } from './shared/component3.apicrud/student-dashboard/student-dashboard.component';
+import { StudentFormComponent } from './shared/component3.apicrud/student-form/student-form.component';
+import { StudentListComponent } from './shared/component3.apicrud/student-list/student-list.component';
+import { MaterialModule } from './shared/component3.apicrud/material/material/material.module';
 
 @NgModule({
   declarations: [
@@ -28,14 +38,24 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     TodosNCompltComponent,
     OneComponent,
     TwoComponent,
-    ThreeComponent
+    ThreeComponent,
+    MainComponent,
+    TodoDashboardComponent,
+    TodoFormComponent,
+    TodoListComponent,
+    GetConfirmComponent,
+    StudentDashboardComponent,
+    StudentFormComponent,
+    StudentListComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    BrowserAnimationsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

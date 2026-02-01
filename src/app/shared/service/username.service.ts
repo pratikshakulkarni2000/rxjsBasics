@@ -8,5 +8,7 @@ export class UsernameService {
 
   userNameSub$ : Subject<string> = new Subject<string>()
 
-  constructor() { }
+  constructor() {}
 }
+
+

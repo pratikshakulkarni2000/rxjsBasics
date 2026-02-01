@@ -21,16 +21,16 @@ export class TodosService {
     return this._httpClient.get<Itodo[]>(this.TODOS_URL)
   }
 
-  getCompltedTodo() : Observable<Itodo[]>{
-    return this.getTodos().pipe(
-      map(arr => {
-        let cmpltedArr = arr.filter(t => {
-          return t.completed
-        })
-        return cmpltedArr
-      })
-    )
-  }
+  // getCompltedTodo() : Observable<Itodo[]>{
+  //   return this.getTodos().pipe(
+  //     map(arr => {
+  //       let cmpltedArr = arr.filter(t => {
+  //         return t.completed
+  //       })
+  //       return cmpltedArr
+  //     })
+  //   )
+  // }
 
 
   getCompleteTodos() : Observable<Itodo[]>{

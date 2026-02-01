@@ -1,0 +1,28 @@
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Sr No.</th>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Contact</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let std of stdInfo; let i = index; trackBy : trackById">
+                <td>{{i + 1}}</td>
+                <td>{{std.fname}} {{std.lname}}</td>
+                <td>{{std.email}}</td>
+                <td>{{std.contact}}</td>
+                <td class="text-center">
+                    <button (click)="onEdit(std)" mat-mini-fab color="primary"><mat-icon>edit</mat-icon></button>
+                </td>
+                <td class="text-center">
+                    <button (click)="onRemove(std.id)" mat-mini-fab color="warn"><mat-icon>delete</mat-icon></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

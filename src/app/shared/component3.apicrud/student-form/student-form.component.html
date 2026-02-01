@@ -1,0 +1,104 @@
+
+<div class="card">
+    <div class="card-body">
+        <form [formGroup]="stdForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="fname">First Name</label>
+                <input 
+                type="text" class="form-control" formControlName="fname">
+
+                <strong class="text-danger" *ngIf="formControls['fname'].touched && formControls['fname'].hasError('required')">
+                   This is an required field !!!
+                </strong>
+
+                <ng-container *ngIf="formControls['fname'].dirty">
+                    <strong class="text-danger" *ngIf="formControls['fname'].hasError('minlength')">
+                        Minimum length should be {{formControls['fname'].errors?.['minlength'].requiredLength}}
+                        & the actual length is {{formControls['fname'].errors?.['minlength'].actualLength}}
+                    </strong>
+
+                     <strong class="text-danger" *ngIf="formControls['fname'].hasError('maxlength')">
+                        Max length should be {{formControls['fname'].errors?.['maxlength'].requiredLength}}
+                        & the actual length is {{formControls['fname'].errors?.['maxlength'].actualLength}}
+                    </strong>
+
+                    <strong class="text-danger" *ngIf="formControls['fname'].hasError('pattern')">
+                         Use letters only , no numbers nor special characters here !!!
+                    </strong>
+
+                    <strong
+                        class="text-danger"
+                        *ngIf="formControls['fname'].hasError('noSpaceBar')">
+                         {{ formControls["fname"].errors?.["noSpaceBar"] }}
+                    </strong>
+                </ng-container>
+            </div>
+
+            <div class="form-group">
+                <label for="lname">Last Name</label>
+                <input 
+                formControlName="lname"
+                type="text" class="form-control">
+
+                <strong class="text-danger" *ngIf="formControls['lname'].touched && formControls['lname'].hasError('required')">
+                   This is an required field !!!
+                </strong>
+
+                <ng-container *ngIf="formControls['lname'].dirty">
+                    <strong class="text-danger" *ngIf="formControls['lname'].hasError('minlength')">
+                        Minimum length should be {{formControls['lname'].errors?.['minlength'].requiredLength}}
+                        & the actual length is {{formControls['lname'].errors?.['minlength'].actualLength}}
+                    </strong>
+
+                     <strong class="text-danger" *ngIf="formControls['lname'].hasError('maxlength')">
+                        Max length should be {{formControls['lname'].errors?.['maxlength'].requiredLength}}
+                        & the actual length is {{formControls['lname'].errors?.['maxlength'].actualLength}}
+                    </strong>
+
+                    <strong class="text-danger" *ngIf="formControls['lname'].hasError('pattern')">
+                         Use letters only , no numbers nor special characters here !!!
+                    </strong>
+
+                    <strong
+                        class="text-danger"
+                        *ngIf="formControls['lname'].hasError('noSpaceBar')">
+                         {{ formControls["lname"].errors?.["noSpaceBar"] }}
+                    </strong>
+                </ng-container>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input 
+                formControlName="email"
+                type="text" class="form-control">
+
+                <strong class="text-danger" *ngIf="formControls['email'].touched && formControls['email'].hasError('required')">
+                    Email is an required field !!!
+                </strong>
+
+                <strong class="text-danger" *ngIf="formControls['email'].dirty && formControls['email'].hasError('pattern')">
+                    Please enter valid emailid !!!
+                </strong>
+            </div>
+
+            <div class="form-group">
+                <label for="contact">Contact</label>
+                <input 
+                formControlName="contact"
+                type="text" class="form-control">
+
+                <strong class="text-danger" *ngIf="formControls['contact'].touched && formControls['contact'].hasError('required')">
+                    Contact is an required field !!!
+                </strong>
+
+                <strong class="text-danger" *ngIf="formControls['contact'].dirty && formControls['contact'].hasError('pattern')">
+                    Contact must starts with 6,7,8,9 & length should be 10 !!!
+                </strong>
+            </div>
+
+            <button *ngIf="!isInEditMode" mat-raised-button color="accent" class="w-100">Add Student</button>
+            <button (click)="onUpdate()" *ngIf="isInEditMode" type="button" mat-raised-button color="accent" class="w-100">Update Student</button>
+        </form>
+    </div>
+</div>

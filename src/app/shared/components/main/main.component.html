@@ -1,0 +1,27 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <form #usernameForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="username" class="sr-only">User Name</label>
+          <input  
+          ngModel
+          required
+          name="username"
+          type="text" class="form-control">
+        </div>
+        <button [disabled]="usernameForm.invalid" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+    <div class="col-md-4">
+      <app-one></app-one>
+    </div>
+    <div class="col-md-4">
+      <app-two></app-two>
+    </div>
+    <div class="col-md-4">
+      <app-three></app-three>
+    </div>
+  </div>
+</div>

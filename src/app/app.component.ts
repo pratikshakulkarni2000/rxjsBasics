@@ -9,21 +9,8 @@ import { UsernameService } from './shared/service/username.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  @ViewChild('usernameForm') usernameForm !: NgForm
   title = 'rxjsBasics';
-
   
-  private _userservice = inject(UsernameService)
-  
-  onSubmit(){
-    if(this.usernameForm.valid){
-      let val = this.usernameForm.value
-      console.log(val)
-      this.usernameForm.reset()
-        // emits data/value from here  i.e observer 
-      this._userservice.userNameSub$.next(val.username)
-    }
-  }
 
 //  1) // ourInterval$ = new Observable(observer => {
   //   let count = 10

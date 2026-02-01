@@ -1,0 +1,13 @@
+<!-- <p>{{getMsg || 'Are you sure to remove it'}}</p> -->
+
+<p [innerHTML]="getMsg"></p>
+<ng-template #noMsg>
+    <p>
+        Are you sure to remove ?
+    </p>
+</ng-template>
+
+<div class="d-flex justify-content-between">
+    <button class="btn btn-primary" (click)="onClose(true)">Yes</button>
+    <button class="btn btn-danger" (click)="onClose(false)">No</button>
+</div>

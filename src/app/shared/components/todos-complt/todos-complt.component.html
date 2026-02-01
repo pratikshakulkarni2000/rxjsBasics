@@ -14,8 +14,8 @@
 
 
 
-<ul class="list-group">
-    <li *ngFor="let t of todoArrObs$ | async" 
+<ul class="list-group" *ngIf="todoArrObs$ | async as todosArr">
+    <li *ngFor="let t of todosArr" 
     class="list-group-item">
 
         {{t.title}}
